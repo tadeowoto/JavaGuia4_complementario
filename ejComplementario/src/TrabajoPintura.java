@@ -1,18 +1,11 @@
 
 import java.time.LocalDate;
 
-
-
-
-
-
-
-
 public class TrabajoPintura extends Servicio {
-    
+
     protected String edificacion;
     protected double superficie, precioLitroPintura;
-    protected boolean costeAdicional=false;
+    protected boolean costeAdicional = false;
 
     public TrabajoPintura(String edificacion, double superficie, double precioLitroPintura, boolean costeAdicional, String trabajador, String cliente, LocalDate fechaInicio) {
         super(trabajador, cliente, fechaInicio);
@@ -54,7 +47,6 @@ public class TrabajoPintura extends Servicio {
         this.costeAdicional = costeAdicional;
     }
 
-
     public LocalDate getFechaInicio() {
         return fechaInicio;
     }
@@ -63,13 +55,6 @@ public class TrabajoPintura extends Servicio {
         this.fechaInicio = fechaInicio;
     }
 
-
-    
-    
-    
-    
-    
-    
     @Override
     protected double costeMaterial() {
 
@@ -84,49 +69,37 @@ public class TrabajoPintura extends Servicio {
 
     }
 
-
     @Override
     protected double costeTotal() {
 
         if (superficie < 50) {
 
             System.out.println("la superficie es menos de 50mts cuadrados, se la añade un costo de un 15%");
-            costeAdicional=true;
+            costeAdicional = true;
             return (costeMaterial() + costeManoObra()) * 0.15;
-            
-            
-            
 
         } else {
             return costeMaterial() + costeManoObra();
         }
 
     }
-    
-    
-    
-    
-    
+
     @Override
-    protected String detalleServicio(){
-        
+    protected String detalleServicio() {
+
         System.out.println("TRABAJO DE PINTURA");
-        System.out.println("Cliente: "+super.getCliente());
-        System.out.println("Fecha de inicio: "+super.fechaInicio);
+        System.out.println("Cliente: " + super.getCliente());
+        System.out.println("Fecha de inicio: " + super.fechaInicio);
         System.out.println("-----------------------------------");
         System.out.println("");
-        System.out.println("Pintor: "+super.getTrabajador());
-        System.out.println("Coste material "+costeManoObra());
-        System.out.println("Coste adicional "+ costeAdicional);
+        System.out.println("Pintor: " + super.getTrabajador());
+        System.out.println("Coste material " + costeManoObra());
+        System.out.println("Coste adicional " + costeAdicional);
         System.out.println("-----------------------------------");
-        System.out.println("TOTAL "+costeTotal());
-        
-        
+        System.out.println("TOTAL " + costeTotal());
+
         return null;
-        
+
     }
-    
-    
-    
-    
+
 }

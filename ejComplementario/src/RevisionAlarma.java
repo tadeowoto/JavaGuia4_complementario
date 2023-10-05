@@ -12,30 +12,54 @@ public class RevisionAlarma extends Servicio {
     
     
     public RevisionAlarma(int alarmasRevisar, String trabajador, String cliente, LocalDate fechaInicio) {
-        super(trabajador, cliente, fechaInicio);
+        super(trabajador="Revisor Especialista Contraincendios", cliente, fechaInicio);
         this.alarmasRevisar = alarmasRevisar;
     }
+
+    public int getAlarmasRevisar() {
+        return alarmasRevisar;
+    }
+
+    public void setAlarmasRevisar(int alarmasRevisar) {
+        this.alarmasRevisar = alarmasRevisar;
+    }
+    
+    
+    
     
 
     
     @Override
     protected double costeMaterial() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("no existe coste de material");
+        return 0;
     }
 
     @Override
     protected double costeManoObra() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return (alarmasRevisar/3)*40;
     }
 
     @Override
     protected double costeTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return costeManoObra();
     }
+    
+    
 
     @Override
     protected String detalleServicio() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+        System.out.println("REVISION PERIODICA ALARMAS CONTRAINCENDIOS");
+        System.out.println("Cliente "+super.getCliente());
+        System.out.println("Fecha de revision "+ super.fechaInicio);
+        System.out.println("------------------------------------------");
+        System.out.println("");
+        System.out.println("TOTAL "+costeTotal());
+        System.out.println("------------------------------------------");
+        
+        
+        return null;
     }
  
     

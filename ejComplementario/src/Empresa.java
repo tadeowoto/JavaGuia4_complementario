@@ -1,6 +1,4 @@
 
-
-
 public class Empresa {
 
     public double acumulador = 0;

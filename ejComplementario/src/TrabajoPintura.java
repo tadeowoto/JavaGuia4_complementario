@@ -85,7 +85,7 @@ public class TrabajoPintura extends Servicio {
     }
 
     @Override
-    protected String detalleServicio() {
+    protected void detalleServicio() {
 
         System.out.println("TRABAJO DE PINTURA");
         System.out.println("Cliente: " + super.getCliente());
@@ -97,8 +97,6 @@ public class TrabajoPintura extends Servicio {
         System.out.println("Coste adicional " + costeAdicional);
         System.out.println("-----------------------------------");
         System.out.println("TOTAL " + costeTotal());
-
-        return null;
 
     }
 

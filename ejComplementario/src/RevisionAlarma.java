@@ -35,7 +35,7 @@ public class RevisionAlarma extends Servicio {
     }
 
     @Override
-    protected String detalleServicio() {
+    protected void detalleServicio() {
 
         System.out.println("REVISION PERIODICA ALARMAS CONTRAINCENDIOS");
         System.out.println("Cliente " + super.getCliente());
@@ -45,7 +45,6 @@ public class RevisionAlarma extends Servicio {
         System.out.println("TOTAL " + costeTotal());
         System.out.println("------------------------------------------");
 
-        return null;
     }
 
 }
